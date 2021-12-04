@@ -7,11 +7,6 @@ import android.content.Intent
 import android.content.ComponentName
 
 
-
-
-
-
-
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,8 +16,9 @@ class MainActivity : AppCompatActivity() {
 
         btn.setOnClickListener {
             val intent = Intent()
-            intent.component = ComponentName("com.aid.exam13", "com.aid.ContactsApp")
+            intent.component = ComponentName("com.aid.exam13", "com.aid.exam13.ContactsApp")
             startActivity(intent)
         }
     }
 }
+
