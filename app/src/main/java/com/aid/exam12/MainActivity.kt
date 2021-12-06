@@ -1,10 +1,12 @@
 package com.aid.exam12
 
+import android.content.ActivityNotFoundException
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.AppCompatButton
 import android.content.Intent
 import android.content.ComponentName
+import android.widget.Toast
 
 
 class MainActivity : AppCompatActivity() {
@@ -15,9 +17,13 @@ class MainActivity : AppCompatActivity() {
         val btn = findViewById<AppCompatButton>(R.id.btn)
 
         btn.setOnClickListener {
-            val intent = Intent()
-            intent.component = ComponentName("com.aid.exam13", "com.aid.exam13.ContactsApp")
-            startActivity(intent)
+            try {
+                val intent = Intent("ContactsApp")
+                startActivity(intent)
+            }
+            catch (exception: ActivityNotFoundException) {
+                Toast.makeText(this, "There is no app",Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
